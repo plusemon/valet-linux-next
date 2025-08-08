@@ -1,0 +1,21 @@
+{
+    "name": "gemini/valet-linux-plus-plus",
+    "description": "A blazing fast local development environment for Linux.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gemini"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Gemini\\ValetLinuxPlusPlus\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/console": "8.0.x-dev",
+        "symfony/process": "8.0.x-dev",
+        "symfony/filesystem": "8.0.x-dev"
+    }
+}

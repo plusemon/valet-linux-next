@@ -1,0 +1,29 @@
+# Composer dependencies
+/vendor/
+/composer.lock
+
+# Environment variables
+.env
+
+# IDE and editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Cache directories
+/bootstrap/cache/
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+/storage/logs/
+
+# Valet specific files (if any are generated in the project root)
+# For Valet Linux Next, the config is in ~/.config/valet, so no need to ignore here unless you change that.
