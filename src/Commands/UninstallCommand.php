@@ -60,7 +60,7 @@ class UninstallCommand extends Command
         $output->writeln('Reverting Dnsmasq configuration...');
         $cli->run('sudo rm -f /etc/dnsmasq.d/valet');
         $cli->run('sudo rm -f /etc/dnsmasq.d/valet-upstream.conf');
-        $cli->run('sudo service dnsmasq restart');
+        $cli->run('sudo service dnsmasq stop');
         $output->writeln('Dnsmasq configuration reverted.');
     }
 
@@ -69,16 +69,15 @@ class UninstallCommand extends Command
         $output->writeln('Reverting /etc/resolv.conf...');
         $resolvConfPath = '/etc/resolv.conf';
 
-        // Remove the lines added by Valet
-        if ($files->exists($resolvConfPath)) {
-            $content = $files->get($resolvConfPath);
-            $newContent = preg_replace('/^nameserver 127\.0\.0\.1\nnameserver 8\.8\.8\.8\n/', '', $content);
-            $files->put($resolvConfPath, $newContent);
-        }
-
+        // Re-enable and start systemd-resolved first
         $output->writeln('Re-enabling systemd-resolved...');
         $cli->run('sudo systemctl enable systemd-resolved');
         $cli->run('sudo systemctl start systemd-resolved');
+
+        // Remove the resolv.conf file. systemd-resolved will recreate it.
+        if ($files->exists($resolvConfPath)) {
+            $cli->run('sudo rm -f ' . $resolvConfPath);
+        }
         $output->writeln('/etc/resolv.conf reverted and systemd-resolved re-enabled.');
     }
 
@@ -87,17 +86,15 @@ class UninstallCommand extends Command
         $output->writeln('Reverting Nginx configuration...');
         $cli->run('sudo rm -f /etc/nginx/sites-enabled/valet.conf');
         $cli->run('sudo rm -f /etc/nginx/sites-available/valet.conf');
-        $cli->run('sudo service nginx restart');
+        $cli->run('sudo service nginx stop');
         $output->writeln('Nginx configuration reverted.');
     }
 
     private function uninstallPhpFpm(CommandLine $cli, OutputInterface $output)
     {
-        $output->writeln('Uninstalling PHP-FPM...');
-        $cli->run('sudo apt-get remove -y php-fpm', function ($type, $buffer) use ($output) {
-            $output->write($buffer);
-        });
-        $output->writeln('PHP-FPM uninstalled successfully!');
+        $output->writeln('Stopping PHP-FPM...');
+        $cli->run('sudo systemctl stop php8.4-fpm');
+        $output->writeln('PHP-FPM stopped successfully!');
     }
 
     private function removeValetDirectories(Filesystem $files, OutputInterface $output)
