@@ -1,8 +1,8 @@
 <?php
 
-namespace Gemini\ValetLinuxPlusPlus\Commands;
+namespace ValetLinuxNext\Commands;
 
-use Gemini\ValetLinuxPlusPlus\Filesystem;
+use ValetLinuxNext\Filesystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -12,15 +12,15 @@ class LinksCommand extends Command
     protected function configure(): void
     {
         $this->setName('links')
-             ->setDescription('Display all linked Valet sites');
+            ->setDescription('Display all linked Valet sites');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $files = new Filesystem();
-        $configPath = getenv('HOME').'/.config/valet/config.json';
+        $configPath = getenv('HOME') . '/.config/valet/config.json';
 
-        if (! $files->exists($configPath)) {
+        if (!$files->exists($configPath)) {
             $output->writeln('<comment>No Valet links found.</comment>');
             return Command::SUCCESS;
         }

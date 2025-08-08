@@ -1,14 +1,14 @@
 <?php
 
-namespace Gemini\ValetLinuxPlusPlus;
+namespace ValetLinuxNext;
 
-use Gemini\ValetLinuxPlusPlus\Commands\InstallCommand;
-use Gemini\ValetLinuxPlusPlus\Commands\ParkCommand;
-use Gemini\ValetLinuxPlusPlus\Commands\LinkCommand;
-use Gemini\ValetLinuxPlusPlus\Commands\UnlinkCommand;
-use Gemini\ValetLinuxPlusPlus\Commands\UninstallCommand;
-use Gemini\ValetLinuxPlusPlus\Commands\StatusCommand;
-use Gemini\ValetLinuxPlusPlus\Commands\LinksCommand;
+use ValetLinuxNext\Commands\InstallCommand;
+use ValetLinuxNext\Commands\ParkCommand;
+use ValetLinuxNext\Commands\LinkCommand;
+use ValetLinuxNext\Commands\UnlinkCommand;
+use ValetLinuxNext\Commands\UninstallCommand;
+use ValetLinuxNext\Commands\StatusCommand;
+use ValetLinuxNext\Commands\LinksCommand;
 use Symfony\Component\Console\Application as SymfonyApplication;
 
 class Application extends SymfonyApplication

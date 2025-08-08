@@ -1,6 +1,6 @@
 <?php
 
-namespace Gemini\ValetLinuxPlusPlus;
+namespace ValetLinuxNext;
 
 use Traversable;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
@@ -19,7 +19,7 @@ class Filesystem extends SymfonyFilesystem
 
     public function ensureDirExists(string $path, int $mode = 0755)
     {
-        if (! is_dir($path)) {
+        if (!is_dir($path)) {
             $this->mkdir($path, $mode);
         }
     }

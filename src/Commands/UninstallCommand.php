@@ -1,9 +1,9 @@
 <?php
 
-namespace Gemini\ValetLinuxPlusPlus\Commands;
+namespace ValetLinuxNext\Commands;
 
-use Gemini\ValetLinuxPlusPlus\CommandLine;
-use Gemini\ValetLinuxPlusPlus\Filesystem;
+use ValetLinuxNext\CommandLine;
+use ValetLinuxNext\Filesystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -15,7 +15,7 @@ class UninstallCommand extends Command
     protected function configure(): void
     {
         $this->setName('uninstall')
-             ->setDescription('Uninstall Valet Linux Next');
+            ->setDescription('Uninstall Valet Linux Next');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -100,8 +100,8 @@ class UninstallCommand extends Command
     private function removeValetDirectories(Filesystem $files, OutputInterface $output)
     {
         $output->writeln('Removing Valet directories...');
-        $files->remove(getenv('HOME').'/.config/valet');
-        $files->remove(getenv('HOME').'/valet');
+        $files->remove(getenv('HOME') . '/.config/valet');
+        $files->remove(getenv('HOME') . '/valet');
         $output->writeln('Valet directories removed successfully!');
     }
 

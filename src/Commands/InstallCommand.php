@@ -1,9 +1,9 @@
 <?php
 
-namespace Gemini\ValetLinuxPlusPlus\Commands;
+namespace ValetLinuxNext\Commands;
 
-use Gemini\ValetLinuxPlusPlus\CommandLine;
-use Gemini\ValetLinuxPlusPlus\Filesystem;
+use ValetLinuxNext\CommandLine;
+use ValetLinuxNext\Filesystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -13,7 +13,7 @@ class InstallCommand extends Command
     protected function configure(): void
     {
         $this->setName('install')
-             ->setDescription('Install Valet Linux Next');
+            ->setDescription('Install Valet Linux Next');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -120,15 +120,15 @@ class InstallCommand extends Command
     private function createValetDirectories(Filesystem $files, OutputInterface $output)
     {
         $output->writeln('<info>Creating Valet directories...</info>');
-        $files->ensureDirExists(getenv('HOME').'/.config/valet');
-        $files->ensureDirExists(getenv('HOME').'/valet');
+        $files->ensureDirExists(getenv('HOME') . '/.config/valet');
+        $files->ensureDirExists(getenv('HOME') . '/valet');
         $output->writeln('<info>Valet directories created successfully!</info>');
     }
 
     private function symlinkValetExecutable(CommandLine $cli, OutputInterface $output)
     {
         $output->writeln('<info>Symlinking Valet executable...</info>');
-        $cli->run('sudo ln -snf ' . getcwd() . '/bin/valet /usr/local/bin/valet');
+        $cli->run('sudo ln -snf ' . getcwd() . '/valet /usr/local/bin/valet');
         $output->writeln('<info>Valet executable symlinked successfully!</info>');
     }
 

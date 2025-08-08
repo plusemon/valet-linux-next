@@ -1,8 +1,8 @@
 <?php
 
-namespace Gemini\ValetLinuxPlusPlus\Commands;
+namespace ValetLinuxNext\Commands;
 
-use Gemini\ValetLinuxPlusPlus\CommandLine;
+use ValetLinuxNext\CommandLine;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -12,7 +12,7 @@ class StatusCommand extends Command
     protected function configure(): void
     {
         $this->setName('status')
-             ->setDescription('Display the status of Valet services');
+            ->setDescription('Display the status of Valet services');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

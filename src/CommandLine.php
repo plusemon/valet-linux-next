@@ -1,6 +1,6 @@
 <?php
 
-namespace Gemini\ValetLinuxPlusPlus;
+namespace ValetLinuxNext;
 
 use Symfony\Component\Process\Process;
 

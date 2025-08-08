@@ -41,7 +41,7 @@ Follow these steps to install Valet Linux Next on your system:
     This command will install and configure Nginx, Dnsmasq, PHP-FPM (if not already installed), set up Valet directories, and symlink the `valet` executable to `/usr/local/bin`.
 
     ```bash
-    sudo bin/valet install
+    sudo ./valet install
     ```
 
     During installation, you might be prompted for your `sudo` password.
@@ -49,7 +49,7 @@ Follow these steps to install Valet Linux Next on your system:
 4.  **Verify Installation:**
     After installation, you can check the status of Valet services:
     ```bash
-    bin/valet status
+    valet status
     ```
     You should see Nginx, Dnsmasq, and PHP-FPM reported as `Running`.
 
@@ -79,7 +79,7 @@ valet links
 To uninstall Valet Linux Next and revert its changes, run the `uninstall` command. This command is interactive and will ask for confirmation before performing each step.
 
 ```bash
-sudo bin/valet uninstall
+sudo ./valet uninstall
 ```
 
 ## Contributing

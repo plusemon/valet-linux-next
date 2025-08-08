@@ -1,8 +1,8 @@
 <?php
 
-namespace Gemini\ValetLinuxPlusPlus\Commands;
+namespace ValetLinuxNext\Commands;
 
-use Gemini\ValetLinuxPlusPlus\Filesystem;
+use ValetLinuxNext\Filesystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,21 +13,21 @@ class LinkCommand extends Command
     protected function configure(): void
     {
         $this->setName('link')
-             ->setDescription('Link a directory to Valet')
-             ->addArgument('name', InputArgument::OPTIONAL, 'The name of the link');
+            ->setDescription('Link a directory to Valet')
+            ->addArgument('name', InputArgument::OPTIONAL, 'The name of the link');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $files = new Filesystem();
         $currentDirectory = getcwd();
-        $valetConfigDir = getenv('HOME').'/.config/valet';
+        $valetConfigDir = getenv('HOME') . '/.config/valet';
 
         $name = $input->getArgument('name') ?: basename($currentDirectory);
 
-        $files->ensureDirExists($valetConfigDir.'/Sites');
+        $files->ensureDirExists($valetConfigDir . '/Sites');
 
-        $linkPath = $valetConfigDir.'/Sites/'.$name;
+        $linkPath = $valetConfigDir . '/Sites/' . $name;
 
         if ($files->exists($linkPath)) {
             $output->writeln('<error>A site with this name already exists.</error>');
@@ -36,7 +36,7 @@ class LinkCommand extends Command
 
         $files->symlink($currentDirectory, $linkPath);
 
-        $output->writeln('<info>['.$currentDirectory.'] linked to ['.$name.'.test] successfully!</info>');
+        $output->writeln('<info>[' . $currentDirectory . '] linked to [' . $name . '.test] successfully!</info>');
 
         return Command::SUCCESS;
     }
