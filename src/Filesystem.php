@@ -2,7 +2,6 @@
 
 namespace ValetLinuxNext;
 
-use Traversable;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 
 class Filesystem extends SymfonyFilesystem
@@ -24,7 +23,7 @@ class Filesystem extends SymfonyFilesystem
         }
     }
 
-    public function exists(Traversable|array|string $path): bool
+    public function exists($path): bool
     {
         return parent::exists($path);
     }
