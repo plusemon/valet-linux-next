@@ -4,34 +4,35 @@ Valet Linux Next is a development environment for Linux, inspired by Laravel Val
 
 ## Features
 
--   **Zero-configuration:** Automatically serves your projects.
--   **Nginx Integration:** Uses Nginx for high-performance web serving.
--   **Dnsmasq for DNS:** Provides `.test` domain resolution out of the box.
--   **PHP-FPM Support:** Seamlessly integrates with PHP-FPM for PHP application execution.
--   **Interactive Uninstaller:** Allows selective removal of Valet components.
+- **Zero-configuration:** Automatically serves your projects.
+- **Nginx Integration:** Uses Nginx for high-performance web serving.
+- **Dnsmasq for DNS:** Provides `.test` domain resolution out of the box.
+- **PHP-FPM Support:** Seamlessly integrates with PHP-FPM for PHP application execution.
+- **Interactive Uninstaller:** Allows selective removal of Valet components.
 
 ## Requirements
 
 Before installing Valet Linux Next, ensure you have the following installed on your system:
 
--   **PHP (with PHP-FPM):** Valet Linux Next is designed to work with PHP-FPM. Ensure you have a PHP version (e.g., PHP 8.4) and its FPM component installed.
--   **Nginx:** A high-performance HTTP server.
--   **Dnsmasq:** A lightweight DHCP and DNS caching server.
--   **`sudo` privileges:** Installation and uninstallation require root privileges to configure system services and files.
--   **`git`:** For cloning the repository.
+- **PHP (with PHP-FPM):** Valet Linux Next is designed to work with PHP-FPM. Ensure you have a PHP version (e.g., PHP 8.4) and its FPM component installed.
+- **Nginx:** A high-performance HTTP server.
+- **Dnsmasq:** A lightweight DHCP and DNS caching server.
+- **`sudo` privileges:** Installation and uninstallation require root privileges to configure system services and files.
+- **`git`:** For cloning the repository.
 
 ## Installation Guide
 
 Follow these steps to install Valet Linux Next on your system:
 
 1.  **Clone the Repository:**
+
     ```bash
-    git clone https://github.com/your-repo/valet-linux-next.git
+    git clone https://github.com/plusemon/valet-linux-next.git
     cd valet-linux-next
     ```
-    *(Note: Replace `https://github.com/your-repo/valet-linux-next.git` with the actual repository URL.)*
 
 2.  **Install Composer Dependencies:**
+
     ```bash
     composer install
     ```
@@ -42,6 +43,7 @@ Follow these steps to install Valet Linux Next on your system:
     ```bash
     sudo bin/valet install
     ```
+
     During installation, you might be prompted for your `sudo` password.
 
 4.  **Verify Installation:**
